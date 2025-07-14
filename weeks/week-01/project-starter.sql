@@ -75,8 +75,7 @@ INSERT INTO books (
 -- 1. List all books with their authors
 SELECT
     books.title,
-    authors.first_name,
-    authors.last_name
+    CONCAT(authors.first_name, ' ', authors.last_name) AS author_name
 FROM books
 INNER JOIN authors
     ON books.author_id = authors.author_id;
@@ -95,6 +94,20 @@ FROM books
 WHERE publication_year > 1950;
 
 -- 3. Count how many books each author has
+WITH temp AS (
+    SELECT
+        books.title AS booktitle,
+        CONCAT(authors.first_name, ' ', authors.last_name) AS author
+    FROM books INNER JOIN authors
+        ON books.author_id = authors.author_id
+)
+
+SELECT
+    temp.booktitle,
+    temp.author,
+    COUNT(temp.author) AS countauthor
+FROM temp
+GROUP BY temp.booktitle, temp.author;
 
 -- 4. Find the average rating of all books
 
