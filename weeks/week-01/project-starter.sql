@@ -73,8 +73,26 @@ INSERT INTO books (
 -- Write queries to answer these questions:
 
 -- 1. List all books with their authors
+SELECT
+    books.title,
+    authors.first_name,
+    authors.last_name
+FROM books
+INNER JOIN authors
+    ON books.author_id = authors.author_id;
 
 -- 2. Find all books published after 1950
+SELECT
+    book_id,
+    title,
+    author_id,
+    genre_id,
+    publication_year,
+    isbn,
+    pages,
+    rating
+FROM books
+WHERE publication_year > 1950;
 
 -- 3. Count how many books each author has
 
