@@ -131,6 +131,14 @@ LIMIT 1;
 -- 7. Find authors who have written more than one book
 
 -- 8. List books with ratings above 9.0, showing title, author name, and rating
+SELECT
+    books.title,
+    books.rating,
+    CONCAT(authors.first_name, ' ', authors.last_name) AS authorname
+FROM books
+INNER JOIN authors
+    ON books.author_id = authors.author_id
+WHERE books.rating > 9.0;
 
 -- 9. Find the most popular genre (genre with most books)
 
