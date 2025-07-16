@@ -69,6 +69,22 @@ INSERT INTO books (
 ('The Great Gatsby', 4, 3, 1925, '9780743273565', 180, 8.5),
 ('Pride and Prejudice', 5, 4, 1813, '9780141439518', 432, 8.7);
 
+
+-- Insert books
+INSERT INTO books (
+    title,
+    author_id,
+    genre_id,
+    publication_year,
+    isbn,
+    pages,
+    rating
+) VALUES
+(
+    'Harry Potter and the Goblet of Fire',
+    1, 1, 2005, '0747550794', 636, 9.4
+);
+
 -- Task 4: Practice Queries
 -- Write queries to answer these questions:
 
