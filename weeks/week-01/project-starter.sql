@@ -110,10 +110,22 @@ FROM temp
 GROUP BY temp.booktitle, temp.author;
 
 -- 4. Find the average rating of all books
+SELECT AVG(rating) AS avgrating FROM books;
 
 -- 5. List all Fantasy books
+SELECT books.title
+FROM books
+INNER JOIN genres
+    ON books.genre_id = genres.genre_id
+WHERE genres.genre_name = 'Fantasy';
 
 -- 6. Find the longest book (most pages)
+SELECT
+    books.title,
+    MAX(books.pages) AS maxpage
+FROM books
+GROUP BY books.title
+LIMIT 1;
 
 -- Challenge tasks
 -- 7. Find authors who have written more than one book
