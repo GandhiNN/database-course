@@ -42,6 +42,11 @@ INSERT INTO authors (first_name, last_name, birth_year, nationality) VALUES
 ('F. Scott', 'Fitzgerald', 1896, 'American'),
 ('Jane', 'Austen', 1775, 'British');
 
+INSERT INTO authors (first_name, last_name, birth_year, nationality)
+VALUES
+('Maggie', 'O''Farrell', 1972, 'Ireland');
+
+
 -- Insert genres
 INSERT INTO genres (genre_name) VALUES
 ('Fantasy'),
@@ -83,6 +88,9 @@ INSERT INTO books (
 (
     'Harry Potter and the Goblet of Fire',
     1, 1, 2005, '0747550794', 636, 9.4
+),
+(
+    'The Marriage Portrait', 6, 4, 2022, '9788419089540', 448, 8.8
 );
 
 -- Task 4: Practice Queries
