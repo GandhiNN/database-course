@@ -183,3 +183,11 @@ GROUP BY genres.genre_name
 ORDER BY countgenre DESC;
 
 -- 10. Create a query to show books published in each decade   
+SELECT
+    EXTRACT(
+        DECADE FROM
+        CONCAT(books.publication_year, '-01-01')::TIMESTAMP
+    ) AS decade,
+    ARRAY_AGG(books.title) AS title
+FROM books
+GROUP BY decade, books.publication_year;
