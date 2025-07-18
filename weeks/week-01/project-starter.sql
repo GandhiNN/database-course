@@ -153,6 +153,14 @@ LIMIT 1;
 
 -- Challenge tasks
 -- 7. Find authors who have written more than one book
+SELECT
+    CONCAT(authors.first_name, ' ', authors.last_name) AS authorname,
+    COUNT(books.title) AS bookswritten
+FROM authors
+INNER JOIN books
+    ON authors.author_id = books.author_id
+GROUP BY authorname
+HAVING COUNT(books.title) > 1;
 
 -- 8. List books with ratings above 9.0, showing title, author name, and rating
 SELECT
@@ -165,5 +173,13 @@ INNER JOIN authors
 WHERE books.rating > 9.0;
 
 -- 9. Find the most popular genre (genre with most books)
+SELECT
+    genres.genre_name,
+    COUNT(genres.genre_name) AS countgenre
+FROM books
+INNER JOIN genres
+    ON books.genre_id = genres.genre_id
+GROUP BY genres.genre_name
+ORDER BY countgenre DESC;
 
--- 10. Create a query to show books published in each decade
+-- 10. Create a query to show books published in each decade   
